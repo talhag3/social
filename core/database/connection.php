@@ -1,12 +1,17 @@
 <?php
+    
+    $dsn = "mysql:host=".$DOTENV['host'].";dbname=".$DOTENV['dbname'];
+    $user = $DOTENV['dbuser'];
+    $pass = $DOTENV['dbpass'];
+    
 
-    $dsn = "mysql:host=localhost;dbname=tweety";
-    $user = 'root';
-    $pass = '';
+    //die($DOTENV['host']);
 
     try{
+        echo $dsn.$user.$pass;
         $pdo = new PDO($dsn, $user, $pass);
     }catch(PDOException $e){
         echo 'Connection Error! ' . $e->getMessage();
+        die;
     }
 ?>
